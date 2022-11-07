@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
+
                 // Check if Fields are empty
                 if(TextUtils.isEmpty(user) || TextUtils.isEmpty(pass))
                     Toast.makeText(LoginActivity.this, "All Fields are required", Toast.LENGTH_SHORT).show();

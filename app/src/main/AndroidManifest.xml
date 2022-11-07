@@ -3,8 +3,8 @@
     package="com.lexus.blp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,15 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BLP">
         <activity
+            android:name=".PointageActivity"
+            android:exported="true" />
+        <activity
             android:name=".HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DetailsActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="true"
-            android:label="@string/title_activity_login" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

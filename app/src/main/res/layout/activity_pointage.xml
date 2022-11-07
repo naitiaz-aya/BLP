@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".PointageActivity"
+    android:padding="30dp">
+<!--idpt, idblp, datePointage, borne, agent, intime, inzone, valide, matriculeOK, matriculeLu-->
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="BL à Pointer"
+        android:textColor="@color/orange"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/idblp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:textColorHint="@color/black"
+        android:hint="ID BL"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/datePointage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Date Pointage"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idblp" />
+
+    <EditText
+        android:id="@+id/lat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Latittude"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datePointage" />
+   <EditText
+        android:id="@+id/longi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Longitude"
+       android:textColorHint="@color/black"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lat" />
+    <EditText
+        android:id="@+id/agent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Agent"
+        android:textColorHint="@color/black"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/longi" />
+
+
+        <CheckBox android:id="@+id/intime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In Time"/>
+
+        <CheckBox android:id="@+id/inzone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zone"/>
+
+        <CheckBox android:id="@+id/valide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valide"/>
+
+
+        <CheckBox android:id="@+id/matriculeOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matricule OK"/>
+
+
+        <CheckBox android:id="@+id/matriculeLu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matricule Lu"/>
+
+    <Button
+        android:id="@+id/customButtomPointer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        android:text="Pointer"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+
+</LinearLayout>

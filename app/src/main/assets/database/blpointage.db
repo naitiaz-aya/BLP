@@ -1,0 +1,28 @@
+--
+-- File generated with SQLiteStudio v3.3.3 on ven. oct. 28 11:48:14 2022
+--
+-- Text encoding used: UTF-8
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: agents
+CREATE TABLE agents (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password Text );
+INSERT INTO agents (id, username, password) VALUES (1, 'aya', 'aya');
+INSERT INTO agents (id, username, password) VALUES (2, 'admin', 'admin');
+
+-- Table: android_metadata
+CREATE TABLE android_metadata (locale TEXT);
+INSERT INTO android_metadata (locale) VALUES ('en_US');
+
+-- Table: blp
+CREATE TABLE blp (N° INTEGER PRIMARY KEY UNIQUE NOT NULL, MatriculeMa TEXT (250) UNIQUE, Article TEXT, Tonnage INTEGER, VilleDestination TEXT, DateSortie DATE, PEXSortie TEXT DEFAULT "Beni Melal", DateLimite DATE, Client DATE);
+INSERT INTO blp (N°, MatriculeMa, Article, Tonnage, VilleDestination, DateSortie, PEXSortie, DateLimite, Client) VALUES (1, '64942-1233', 'Béton', 5, 'Marrakech', '2021-11-21 05:09:40', 'Beni Melal', '2022-10-28 17:16:15', 'npassief');
+INSERT INTO blp (N°, MatriculeMa, Article, Tonnage, VilleDestination, DateSortie, PEXSortie, DateLimite, Client) VALUES (2, '37808-666', 'Béton', 4, 'Marrakech', '2021-10-05 14:05:51', 'Beni Melal', '2021-11-11 05:06:26', 'bcrowa');
+INSERT INTO blp (N°, MatriculeMa, Article, Tonnage, VilleDestination, DateSortie, PEXSortie, DateLimite, Client) VALUES (3, '0472-3901', 'Ciment', 5, 'Casablanca', '2022-01-07 04:20:45', 'Beni Melal', '2022-04-29 06:57:15', 'nquenelle');
+INSERT INTO blp (N°, MatriculeMa, Article, Tonnage, VilleDestination, DateSortie, PEXSortie, DateLimite, Client) VALUES (4, '0591-2157', 'Ciment', 2, 'Marrakech', '2022-06-22 09:31:14', 'Beni Melal', '2022-03-07 00:22:44', 'nlatorreb');
+INSERT INTO blp (N°, MatriculeMa, Article, Tonnage, VilleDestination, DateSortie, PEXSortie, DateLimite, Client) VALUES (5, '62785-001', 'Ciment', 4, 'Marrakech', '2022-01-23 06:06:06"', 'Beni Melal', '2022-08-18 14:16:05', 'krickerby7');
+INSERT INTO blp (N°, MatriculeMa, Article, Tonnage, VilleDestination, DateSortie, PEXSortie, DateLimite, Client) VALUES (6, '60760-902', 'Béton', 3, 'Marrakech', '2021-10-05 14:05:51', 'Beni Melal', '2022-01-21 01:01:26', 'rchoffin4');
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
