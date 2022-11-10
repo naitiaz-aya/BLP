@@ -50,11 +50,11 @@
     </LinearLayout>
 
         <TextView
-            android:id="@+id/villeDestination"
+            android:id="@+id/dateLimite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Ville Destination"
+            android:text="Date Limite"
             android:padding="25dp"
             android:textColor="@color/blue"
             android:textSize="16sp" />

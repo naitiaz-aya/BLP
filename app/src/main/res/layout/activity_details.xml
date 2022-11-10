@@ -235,36 +235,7 @@
                 android:textSize="25dp" />
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints">
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:text="Date Limite:"
-                android:textAlignment="center"
-                android:textColor="@color/blue"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/dtl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:layout_marginRight="20dp"
-                android:text="BL à pointer"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="25dp" />
-
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailsActivity extends AppCompatActivity {
-    TextView mat, idblp, tge, atc, clt, dtl, dts, pex, vd;
+    TextView mat, idblp, tge, atc, clt,  dts, pex, vd;
     Button verificationbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,8 @@ public class DetailsActivity extends AppCompatActivity {
         String matriculeCa = intent.getStringExtra("matriculeCa");
         String article = intent.getStringExtra("article");
         String tonnage = intent.getStringExtra("tonnage");
-        String borne = intent.getStringExtra("borne");
         String villeDestination = intent.getStringExtra("villeDestination");
         String dtSortie = intent.getStringExtra("dtSortie");
-        String dtLimite = intent.getStringExtra("dtLimite");
         String pexSortie = intent.getStringExtra("pexSortie");
         String client = intent.getStringExtra("client");
         String idBl = intent.getStringExtra("idBl");
@@ -35,7 +33,6 @@ public class DetailsActivity extends AppCompatActivity {
         tge = (TextView) findViewById(R.id.tge);
         atc = (TextView) findViewById(R.id.atc);
         vd = (TextView) findViewById(R.id.vd);
-        dtl = (TextView) findViewById(R.id.dtl);
         dts = (TextView) findViewById(R.id.dts);
         clt = (TextView) findViewById(R.id.clt);
         pex = (TextView) findViewById(R.id.pex);
@@ -47,7 +44,6 @@ public class DetailsActivity extends AppCompatActivity {
         vd.setText(villeDestination);
         dts.setText(dtSortie);
         pex.setText(pexSortie);
-        dtl.setText(dtLimite);
         clt.setText(client);
         verificationbtn = findViewById(R.id.verificationbtn);
         verificationbtn.setOnClickListener(new View.OnClickListener() {

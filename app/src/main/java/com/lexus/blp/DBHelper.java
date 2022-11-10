@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertDataIntoTheDB( int idblp, String datePointage, String lat, String longi, String agent, Boolean intime, Boolean inzone, Boolean valide, Boolean matriculeOK, Boolean matriculeLu) {
+    public boolean insertDataIntoTheDB( String idblp, String datePointage, String lat, String longi, String agent, Boolean intime, Boolean inzone, Boolean valide, Boolean matriculeOK, Boolean matriculeLu) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COl_2, idblp);
@@ -60,7 +60,6 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COl_11, longi);
         long result = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         return (result == -1) ? false : true;
-
     }
 
     public Boolean insertData(String username, String password ){

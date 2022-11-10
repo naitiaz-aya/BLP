@@ -50,7 +50,6 @@ public class HomeActivity extends AppCompatActivity {
     String[] article = {"Béton","Béton","Ciment", "Béton", "Ciment", "Béton"};
     String[] tonnage = {"2", "5", "4", "3", "2", "4"};
     String[] villeDestination = {"Marrakech", "Marrakech", "Marrakech", "Marrakech", "Marrakech", "Marrakech"};
-    String[] borne = {"Latitude : 31.6341600° Longitude : -7.9999400°", "Latitude : 31.6341600° Longitude : -7.9999400°", "Latitude : 31.6341600° Longitude : -7.9999400°" ,"Latitude : 31.6341600° Longitude : -7.9999400°" ,"Latitude : 31.6341600° Longitude : -7.9999400°" ,"Latitude : 31.6341600° Longitude : -7.9999400°"};
     String[] dtSortie = {"2021-11-21", "2021-10-05", "2022-01-07", "2022-06-22", "2022-01-23", "2021-10-05"};
     String[] pexSortie = {"Beni Melal", "Beni Melal", "Beni Melal", "Beni Melal" ,"Beni Melal", "Beni Melal"};
     String[] dtLimite = {"2022-10-28", "2021-11-11", "2022-04-29","2022-10-18", "2022-01-23", "2022-01-21"};
@@ -64,9 +63,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //DB
 
-
-
-        ListAdapter blpArrayList = new ListAdapter(this, matriculeCa, article,villeDestination, idBl);
+        ListAdapter blpArrayList = new ListAdapter(this, matriculeCa, article,dtLimite, idBl);
 
         listView=(ListView)findViewById(R.id.listView);
         listView.setAdapter(blpArrayList);
@@ -81,7 +78,6 @@ public class HomeActivity extends AppCompatActivity {
                 i.putExtra("article", article[position]);
                 i.putExtra("tonnage", tonnage[position]);
                 i.putExtra("villeDestination", villeDestination[position]);
-                i.putExtra("borne", borne[position]);
                 i.putExtra("dtSortie", dtSortie[position]);
                 i.putExtra("pexSortie", pexSortie[position]);
                 i.putExtra("dtLimte", dtLimite[position]);
@@ -94,9 +90,6 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         logout = findViewById(R.id.logout);
-
-
-        //GP        //GP
 
         //logout
         logout.setOnClickListener(new View.OnClickListener() {
@@ -115,11 +108,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         //logout
-
-        //date
-
     }
-    //date
-
-
 }

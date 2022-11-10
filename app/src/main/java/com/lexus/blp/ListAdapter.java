@@ -19,16 +19,16 @@ public class ListAdapter extends ArrayAdapter<String> {
      Activity context;
      String[] matriculeCa;
      String[] article;
-     String[] villeDestination;
+     String[] dateLimite;
      String[] idBl;
 
 
-    public ListAdapter( Activity context,String[] matriculeCa,String[] article,String[] villeDestination, String[] idBl) {
+    public ListAdapter( Activity context,String[] matriculeCa,String[] article,String[] dateLimite, String[] idBl) {
         super(context, R.layout.list_item, matriculeCa);
         this.context=context;
         this.matriculeCa=matriculeCa;
         this.article=article;
-        this.villeDestination=villeDestination;
+        this.dateLimite=dateLimite;
         this.idBl=idBl;
     }
 
@@ -38,14 +38,13 @@ public class ListAdapter extends ArrayAdapter<String> {
 
         TextView matricule = (TextView) rowView.findViewById(R.id.matriculeCa);
         TextView artl= (TextView) rowView.findViewById(R.id.article);
-        TextView vDestination = (TextView) rowView.findViewById(R.id.villeDestination);
+        TextView dLimite = (TextView) rowView.findViewById(R.id.dateLimite);
         TextView iBl = (TextView) rowView.findViewById(R.id.idBl);
 
         matricule.setText(matriculeCa[position]);
         artl.setText(article[position]);
-        vDestination.setText(villeDestination[position]);
+        dLimite.setText(dateLimite[position]);
         iBl.setText(idBl[position]);
-
 
         return rowView;
 

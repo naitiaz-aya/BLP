@@ -93,46 +93,6 @@ public class PointageActivity extends AppCompatActivity {
 
 
 
-       /* intime = findViewById(R.id.intime);
-        inzone = findViewById(R.id.inzone);
-        novalide = findViewById(R.id.valide);
-        matriculeOK = findViewById(R.id.matriculeOK);
-        matriculeLu = findViewById(R.id.matriculeLu);
-
-        //in zone
-        boolean zone;
-        if (inzone.isChecked()) {
-            zone = true;
-
-        } else {
-            zone = false;
-        }
-        //valide
-        boolean vl;
-        if (valide.isChecked()) {
-            vl = true;
-
-        } else {
-            vl = false;
-        }
-        //Matricule OK
-        boolean ok;
-        if (matriculeOK.isChecked()) {
-            ok = true;
-
-        } else {
-            ok = false;
-        }
-        //matricule Lu
-        boolean lu;
-        if (matriculeLu.isChecked()) {
-            lu = true;
-
-        } else {
-            lu = false;
-        }
-
-         */
         if(ContextCompat.checkSelfPermission(PointageActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(PointageActivity.this, new String[]{
                     Manifest.permission.CAMERA
@@ -147,7 +107,62 @@ public class PointageActivity extends AppCompatActivity {
 
             }
         });
-        _AddData();
+
+
+        _CustomButtomAdd.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String[] dtLimite = {"2022-10-28", "2021-11-11", "2022-04-29","2022-10-18", "2022-01-23", "2022-01-21"};
+                String[] matriculeCa = {"64942-1233","37808-666", "0472-3901", "0591-2157", "62785-001", "60760-902"};
+                String latt = "31.630000";
+                String logitu = "-8.008889";
+                String idBLP = idblp.getText().toString();
+                String dPointage = datePointage.getText().toString();
+                String lati = lat.getText().toString();
+                String longit = longi.getText().toString();
+                String agt = agent.getText().toString();
+                Boolean time = false;
+                for (String dt : dtLimite) {
+
+                    if (dt.equals(dPointage)) {
+
+                        time = true;
+                    }
+                }
+
+                Boolean zone = false;
+
+                if (lati == latt && longit == logitu) {
+
+                    zone = true;
+                }
+                Boolean mt = false;
+                for (String m : matriculeCa) {
+
+                    if (m.equals(textView_data)) {
+
+                        mt = true;
+                    }
+                }
+                Boolean lu = true;
+                Boolean vd = false;
+                if(lu == true && zone == true && time == true && lu ==true ){
+                    vd = true;
+                }
+
+
+                boolean b = instance.insertDataIntoTheDB(idBLP,dPointage,lati, longit, agt, time, zone,vd ,mt, lu);
+
+                if (b) {
+                    Toast.makeText(PointageActivity.this, "VERIFICATION SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(PointageActivity.this, "OOP'S SOMETHING WRONG :( ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
 
         lat = findViewById(R.id.lat);
         longi = findViewById(R.id.longi);
@@ -177,19 +192,6 @@ public class PointageActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-/*
-                String url = "https://time.is/Unix_time_now";
-                Document doc = Jsoup.parse(new URL(url).openStream(), "UTF-8", url);
-                String[] tags = new String[] {
-                        "div[id=time_section]",
-                        "div[id=clock0_bg]"
-                };
-                Elements elements= doc.select(tags[0]);
-                for (int i = 0; i <tags.length; i++) {
-                    elements = elements.select(tags[i]);
-                }
-                return Long.parseLong(elements.text() + "000");
-            }*/
             }
         });
 
@@ -235,133 +237,6 @@ public class PointageActivity extends AppCompatActivity {
         }
     }
 
-
-
-
-  /*  @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-        if(id == R.id.addImage) {
-            showImageImportDialog();
-        }
-        if(id == R.id.settings){
-            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void showImageImportDialog() {
-
-        String[] items = {" Camera" , " Gallery"};
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Select Image");
-        dialog.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (which == 0){
-                    //camera option Click
-                    if (!checkCameraPermission()){
-                        //camera permission not allowed, request it;
-                        requestCameraPermission();
-                    }else{
-                        //camera permission allowed
-                        pickCamera();
-                    }
-                }
-                if (which == 1){
-                    //Gallery option Click
-                    if (!checkStoragePermission()){
-                        //Storage permission not allowed, request it;
-                        requestStoragePermission();
-                    }else{
-                        //Storage permission allowed
-                        pickGallery();
-                    }
-                }
-            }
-        });
-        dialog.create().show();
-
-
-    }
-
-    private void pickGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        mStartForResult.launch(intent);
-    }
-
-    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent intent = result.getData();
-                        // Handle the Intent
-                    }
-            }
-    });
-    private void pickCamera() {
-        ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, "NewPicture");
-        values.put(MediaStore.Images.Media.DESCRIPTION, "Reconnaissance de Matricule");
-        image_uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-        Intent cameraIntent =   new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri);
-        mStartForResult.launch(cameraIntent);
-    }
-
-    private void requestStoragePermission() {
-        ActivityCompat.requestPermissions(this, storagePermission, STORAGE_REQUEST_CODE);
-    }
-
-    private boolean checkStoragePermission() {
-        boolean result  = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result ;
-    }
-
-    private void requestCameraPermission() {
-        ActivityCompat.requestPermissions(this, cameraPermission, CAMERA_REQUEST_CODE);
-    }
-
-
-    private boolean checkCameraPermission() {
-        /*  Check camera permission and return the result
-        *in order to get high quality  image we have to save image to external storage first
-        * before inserting to image view that's why storage permission will also be required
-        *
-       boolean result  = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
-        boolean result1  = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
-        return result && result1;
-
-    }
-*/
-
-
-    public void _AddData() {
-        _CustomButtomAdd.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                boolean b = instance.insertDataIntoTheDB( Integer.valueOf(idblp.getText().toString().trim()), datePointage.getText().toString().trim(), lat.getText().toString().trim(), longi.getText().toString().trim(), agent.getText().toString().trim(), Boolean.valueOf(intime.getText().toString().trim()) , Boolean.valueOf(inzone.getText().toString().trim()), Boolean.valueOf(valide.getText().toString().trim()), Boolean.valueOf(matriculeOK.getText().toString().trim()), Boolean.valueOf(matriculeLu.getText().toString().trim()));
-
-                if (b) {
-                    Toast.makeText(PointageActivity.this, "VERIFICATION SUCCESSFULLY", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(PointageActivity.this, "OOP'S SOMETHING WRONG :( ", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
     private void getLastLocation(){
         if (ContextCompat.checkSelfPermission(PointageActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             fusedLocationProviderClient.getLastLocation()
