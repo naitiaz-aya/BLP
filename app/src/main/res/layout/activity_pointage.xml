@@ -31,18 +31,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/datePointage"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Date Pointage"
-        android:textColorHint="@color/black"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idblp" />
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/datePointage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Date Pointage"
+            android:inputType="text"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/idblp" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/orange"
+            android:text="Get DAte"
+            android:textSize="11sp"
+            app:cornerRadius="20dp" />
+
+    </LinearLayout>
+
+
+
 
     <EditText
         android:id="@+id/lat"
@@ -56,6 +76,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datePointage" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
    <EditText
         android:id="@+id/longi"
         android:layout_width="match_parent"
@@ -68,6 +92,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lat" />
+        <Button
+            android:id="@+id/loca"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/orange"
+            android:text="Get Loca"
+            android:textSize="11sp"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
     <EditText
         android:id="@+id/agent"
         android:layout_width="match_parent"
@@ -82,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/longi" />
 
 
-        <CheckBox android:id="@+id/intime"
+      <!--  <CheckBox android:id="@+id/intime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="In Time"/>
@@ -107,8 +141,66 @@
         <CheckBox android:id="@+id/matriculeLu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Matricule Lu"/>
+            android:text="Matricule Lu"/> -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Matrucule Scan"
+            android:textColorHint="@color/black"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lat" />
+        <Button
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/orange"
+            android:text="Picture"
+            android:textSize="11sp"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
 
+
+   <!-- <LinearLayout
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Matrucule Scan"
+            android:text="Image Preview"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18dp"/>
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Matrucule Scan"
+            android:inputType="text"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </LinearLayout>-->
     <Button
         android:id="@+id/customButtomPointer"
         android:layout_width="match_parent"
