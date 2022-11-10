@@ -48,7 +48,6 @@ public class PointageActivity extends AppCompatActivity {
     private static final int REQUEST_CAMERA_CODE = 100;
 
     private TimeTCPClient timeTCPClient;
-    TextView date;
     Button btn, loca;
 
     String cameraPermission[];
@@ -58,13 +57,10 @@ public class PointageActivity extends AppCompatActivity {
 
     private final  static  int REQUEST_CODE = 100;
 
-    EditText mResult;
-    String[] idBl = { "1","2","3","4","5","6"};
-
     DBHelper instance;
     EditText  idblp, datePointage, lat, longi,  agent;
-    CheckBox intime, inzone,  valide, matriculeOK, matriculeLu;
     Button _CustomButtomAdd ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +69,6 @@ public class PointageActivity extends AppCompatActivity {
         button_capture = findViewById(R.id.img);
         textView_data = findViewById(R.id.result);
         instance = new DBHelper(this);
-        mResult = findViewById(R.id.result);
-        //mImg = findViewById(R.id.img);
         _CustomButtomAdd = findViewById(R.id.customButtomPointer);
         idblp = findViewById(R.id.idblp);
         datePointage = findViewById(R.id.datePointage);
@@ -122,6 +116,7 @@ public class PointageActivity extends AppCompatActivity {
                 String lati = lat.getText().toString();
                 String longit = longi.getText().toString();
                 String agt = agent.getText().toString();
+                String matricule = textView_data.getText().toString();
                 Boolean time = false;
                 for (String dt : dtLimite) {
 
@@ -134,14 +129,11 @@ public class PointageActivity extends AppCompatActivity {
                 Boolean zone = false;
 
                 if (lati == latt && longit == logitu) {
-
                     zone = true;
                 }
                 Boolean mt = false;
                 for (String m : matriculeCa) {
-
-                    if (m.equals(textView_data)) {
-
+                    if (m.equals(matricule)) {
                         mt = true;
                     }
                 }
@@ -150,8 +142,6 @@ public class PointageActivity extends AppCompatActivity {
                 if(lu == true && zone == true && time == true && lu ==true ){
                     vd = true;
                 }
-
-
                 boolean b = instance.insertDataIntoTheDB(idBLP,dPointage,lati, longit, agt, time, zone,vd ,mt, lu);
 
                 if (b) {
@@ -194,9 +184,6 @@ public class PointageActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
 
     }
     //date
