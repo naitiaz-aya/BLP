@@ -75,7 +75,11 @@ public class PointageActivity extends AppCompatActivity {
         lat = findViewById(R.id.lat);
         longi = findViewById(R.id.longi);
         agent = findViewById(R.id.agent);
+        Intent intent = getIntent();
+        String b = intent.getStringExtra("idBl");
 
+        // use the text in a TextView
+        idblp.setText(b);
         //permission
         cameraPermission = new String[]{
                 Manifest.permission.CAMERA,
@@ -184,7 +188,6 @@ public class PointageActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
     //date
     @Override
@@ -246,9 +249,12 @@ public class PointageActivity extends AppCompatActivity {
             askPermission();
         }
     }
+
+    
     private void askPermission() {
         ActivityCompat.requestPermissions(PointageActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull @org.jetbrains.annotations.NotNull String[] permissions, @NonNull @org.jetbrains.annotations.NotNull int[] grantResults) {
         if (requestCode == REQUEST_CODE){

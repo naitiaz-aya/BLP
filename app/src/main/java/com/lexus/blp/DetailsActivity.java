@@ -16,6 +16,9 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+
+
+
         Intent intent = this.getIntent();
 
 
@@ -45,12 +48,22 @@ public class DetailsActivity extends AppCompatActivity {
         dts.setText(dtSortie);
         pex.setText(pexSortie);
         clt.setText(client);
+
+
+
+
+        String b = idblp.getText().toString();
+        String c = clt.getText().toString();
         verificationbtn = findViewById(R.id.verificationbtn);
         verificationbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PointageActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(getApplicationContext(), PointageActivity.class);
+
+                i.putExtra("client", c);
+                i.putExtra("idBl", b);
+
+                startActivity(i);
             }
         });
 
