@@ -44,7 +44,12 @@
                 app:cornerRadius="20dp" />
         </LinearLayout>
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ag"
+            android:visibility="invisible"
+            />
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"

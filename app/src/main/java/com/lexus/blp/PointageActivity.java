@@ -77,9 +77,10 @@ public class PointageActivity extends AppCompatActivity {
         agent = findViewById(R.id.agent);
         Intent intent = getIntent();
         String b = intent.getStringExtra("idBl");
-
+        String c = intent.getStringExtra("agent");
         // use the text in a TextView
         idblp.setText(b);
+        agent.setText(c);
         //permission
         cameraPermission = new String[]{
                 Manifest.permission.CAMERA,

@@ -42,9 +42,14 @@ public class MainActivity extends AppCompatActivity {
                         if(checkuser==false){
                             Boolean insert = DB.insertData(user, pass);
                             if(insert==true){
+
+
                                 Toast.makeText(MainActivity.this, "Registred Successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                intent.putExtra("agent", user);
                                 startActivity(intent);
+
+
                             }else{
                                 Toast.makeText(MainActivity.this, "Registartion failed", Toast.LENGTH_SHORT).show();
                             }

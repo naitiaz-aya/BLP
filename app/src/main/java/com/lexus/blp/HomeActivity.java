@@ -40,8 +40,10 @@ public class HomeActivity extends AppCompatActivity {
     //GP
 
     ListView listView;
+
     //GP
     Button logout;
+    String agt;
     DBHelper DB;
 
 
@@ -60,7 +62,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
-
+        TextView agent = findViewById(R.id.ag);
+        Intent intent = getIntent();
+        String a = intent.getStringExtra("agent");
+          agent.setText(a);
+          agt = agent.getText().toString();
         //DB
 
         ListAdapter blpArrayList = new ListAdapter(this, matriculeCa, article,dtLimite, idBl);
@@ -83,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
                 i.putExtra("dtLimte", dtLimite[position]);
                 i.putExtra("client", client[position]);
                 i.putExtra("idBl", idBl[position]);
-
+                i.putExtra("agent", a);
                 startActivity(i);
             }
 
@@ -103,6 +109,7 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 intent.putExtra("finish", true);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(intent);
                 finish();
             }

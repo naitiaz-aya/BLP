@@ -18,9 +18,11 @@ public class DetailsActivity extends AppCompatActivity {
 
 
 
-
+        TextView agent = findViewById(R.id.age);
         Intent intent = this.getIntent();
 
+        String a = intent.getStringExtra("agent");
+        agent.setText(a);
 
         String matriculeCa = intent.getStringExtra("matriculeCa");
         String article = intent.getStringExtra("article");
@@ -60,7 +62,7 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), PointageActivity.class);
 
-                i.putExtra("client", c);
+                i.putExtra("agent", a);
                 i.putExtra("idBl", b);
 
                 startActivity(i);
