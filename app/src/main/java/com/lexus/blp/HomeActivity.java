@@ -52,9 +52,9 @@ public class HomeActivity extends AppCompatActivity {
     String[] article = {"Béton","Béton","Ciment", "Béton", "Ciment", "Béton"};
     String[] tonnage = {"2", "5", "4", "3", "2", "4"};
     String[] villeDestination = {"Marrakech", "Marrakech", "Marrakech", "Marrakech", "Marrakech", "Marrakech"};
-    String[] dtSortie = {"2021-11-21", "2021-10-05", "2022-01-07", "2022-06-22", "2022-01-23", "2021-10-05"};
+    String[] dtSortie = {"Wed Nov 16","Wed Nov 16","Thu Nov 17", "Thu Nov 17", "Fri Nov 18","Fri Nov 18"};
     String[] pexSortie = {"Beni Melal", "Beni Melal", "Beni Melal", "Beni Melal" ,"Beni Melal", "Beni Melal"};
-    String[] dtLimite = {"2022-10-28", "2021-11-11", "2022-04-29","2022-10-18", "2022-01-23", "2022-01-21"};
+    String[] dtLimite = {"Thu Nov 17", "Thu Nov 17", "Fri Nov 18","Fri Nov 18", "Sat Nov 19", "Sat Nov 19"};
     String[] client = {"rchoffin4", "krickerby7", "nlatorreb", "nquenelle", "bcrowa", "npassief"};
 
     @Override

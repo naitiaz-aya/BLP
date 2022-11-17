@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="BL à Pointer"
+        android:text="Pointage"
         android:textColor="@color/orange"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -55,7 +55,7 @@
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:backgroundTint="@color/orange"
-            android:text="Get DAte"
+            android:text="DAte"
             android:textSize="11sp"
             app:cornerRadius="20dp" />
 
@@ -98,7 +98,7 @@
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:backgroundTint="@color/orange"
-            android:text="Get Loca"
+            android:text="Loca"
             android:textSize="11sp"
             app:cornerRadius="20dp" />
     </LinearLayout>
@@ -153,6 +153,7 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Matrucule Scan"
+
             android:textColorHint="@color/black"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +165,7 @@
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:backgroundTint="@color/orange"
-            android:text="Picture"
+            android:text="Scan"
             android:textSize="11sp"
             app:cornerRadius="20dp" />
     </LinearLayout>
@@ -207,7 +208,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/blue"
-        android:text="Pointer"
+        android:text="Ok"
         android:textSize="18sp"
         app:cornerRadius="20dp" />
 

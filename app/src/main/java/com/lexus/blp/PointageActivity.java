@@ -21,9 +21,7 @@ import android.provider.MediaStore;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -78,9 +76,11 @@ public class PointageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String b = intent.getStringExtra("idBl");
         String c = intent.getStringExtra("agent");
+
         // use the text in a TextView
         idblp.setText(b);
         agent.setText(c);
+
         //permission
         cameraPermission = new String[]{
                 Manifest.permission.CAMERA,
@@ -89,8 +89,6 @@ public class PointageActivity extends AppCompatActivity {
         storagePermission = new String[]{
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
-
-
 
         if(ContextCompat.checkSelfPermission(PointageActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(PointageActivity.this, new String[]{
@@ -102,8 +100,6 @@ public class PointageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).start(PointageActivity.this);
-
-
             }
         });
 
@@ -112,10 +108,10 @@ public class PointageActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String[] dtLimite = {"2022-10-28", "2021-11-11", "2022-04-29","2022-10-18", "2022-01-23", "2022-01-21"};
+                String[] dtLimite = {"Thu Nov 17", "Thu Nov 17", "Fri Nov 18","Fri Nov 18", "Sat Nov 19", "Sat Nov 19"};
                 String[] matriculeCa = {"64942-1233","37808-666", "0472-3901", "0591-2157", "62785-001", "60760-902"};
-                String latt = "31.630000";
-                String logitu = "-8.008889";
+                String[] latt = {"31.630000" ,"31.6294723", "31.657239"};
+                String[] logitu = {"-8.008889", "-7.9810845", "-8.003744"};
                 String idBLP = idblp.getText().toString();
                 String dPointage = datePointage.getText().toString();
                 String lati = lat.getText().toString();
@@ -132,8 +128,19 @@ public class PointageActivity extends AppCompatActivity {
                 }
 
                 Boolean zone = false;
-
-                if (lati == latt && longit == logitu) {
+                Boolean l = false;
+                Boolean lg = false;
+                for (String la : latt ) {
+                    if (la.equals(lati) ) {
+                        l = true;
+                    }
+                }
+                for (String lo : logitu ) {
+                    if (lo.equals(longit) ) {
+                        lg = true;
+                    }
+                }
+                if (l  && lg ){
                     zone = true;
                 }
                 Boolean mt = false;
@@ -144,20 +151,20 @@ public class PointageActivity extends AppCompatActivity {
                 }
                 Boolean lu = true;
                 Boolean vd = false;
-                if(lu == true && zone == true && time == true && lu ==true ){
+                if(zone  && time && mt){
                     vd = true;
                 }
-                boolean b = instance.insertDataIntoTheDB(idBLP,dPointage,lati, longit, agt, time, zone,vd ,mt, lu);
 
+                boolean b = instance.insertDataIntoTheDB(idBLP,dPointage,lati, longit, agt, time, zone,vd ,mt, lu);
                 if (b) {
                     Toast.makeText(PointageActivity.this, "VERIFICATION SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(PointageActivity.this, "OOP'S SOMETHING WRONG :( ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
 
         lat = findViewById(R.id.lat);
         longi = findViewById(R.id.longi);
@@ -180,7 +187,7 @@ public class PointageActivity extends AppCompatActivity {
                 try {
                     timeTCPClient.connect("time.nist.gov");
                     try {
-                        datePointage.setText(timeTCPClient.getDate().toString().substring(0, 20));
+                        datePointage.setText(timeTCPClient.getDate().toString().substring(0, 10));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

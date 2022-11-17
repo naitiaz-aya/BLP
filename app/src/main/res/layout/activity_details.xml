@@ -15,9 +15,10 @@
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:id="@+id/age"
+
             android:visibility="invisible"
             />
 
@@ -273,22 +274,17 @@
 
         </LinearLayout>
 
-
-
-
     </LinearLayout>
     <Button
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:id="@+id/verificationbtn"
-        android:text="Verifier"
+        android:text="Pointer"
         android:textSize="20dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:backgroundTint="@color/orange"
         app:cornerRadius = "20dp"/>
-
-
 
 </LinearLayout>

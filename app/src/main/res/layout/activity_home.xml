@@ -25,8 +25,9 @@
                 android:id="@+id/BL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:text="BL à pointer"
+                android:layout_weight="0.45"
+                android:text="Les BLs à pointer"
+                android:layout_marginLeft="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/blue"
                 android:textSize="25dp"
@@ -38,6 +39,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="0.18"
                 android:backgroundTint="@color/orange"
+                android:layout_marginRight="10dp"
                 android:drawableLeft="@drawable/ic_baseline_login_24"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -45,8 +47,8 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:id="@+id/ag"
             android:visibility="invisible"
             />
@@ -55,11 +57,9 @@
             android:layout_width="match_parent"
             android:layout_height="592dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="242dp"/>
-
-
 
     </LinearLayout>
 
